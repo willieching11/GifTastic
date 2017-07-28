@@ -1,0 +1,26 @@
+.container {
+    text-align: center;
+    margin: 10px;
+    background-image: url("../images/dark-triangles.png");
+    
+}
+
+body {
+    background-image: url("../images/wallpaper.jpg");
+}
+
+
+#title >  h1 {
+    font-size: 100px; 
+    color: red;
+}
+
+#buttons-view > button {
+  margin: 10px;
+}
+
+#gifs-appear-here > img {
+  margin: 10px;
+}
+
+
