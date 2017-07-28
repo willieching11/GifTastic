@@ -9,6 +9,10 @@ body {
     background-image: url("../images/wallpaper.jpg");
 }
 
+label {
+    color: red;
+}
+
 
 #title >  h1 {
     font-size: 100px; 
@@ -21,6 +25,17 @@ body {
 
 #gifs-appear-here > img {
   margin: 10px;
+  float: left;
+}
+
+#gifs-appear-here > div {
+  color: green;
+  float: left;
+  margin: 10px;
+}
+
+#gifs-appear-here > div > h1 {
+  font-size: 20px;
 }
 
 

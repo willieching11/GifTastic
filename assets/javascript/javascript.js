@@ -12,6 +12,7 @@ $(document).ready(function() {
       var a = $("<button>");
       // Adds a class of animal to our button
       a.addClass("animal");
+      a.addClass("btn btn-success");
       // Added a data-attribute
       a.attr("data-name", animals[i]);
       // Provided the initial button text
@@ -25,7 +26,7 @@ $(document).ready(function() {
     $("#gifs-appear-here").empty();
     var animal = $(this).attr("data-name");
     var queryURL = "http://api.giphy.com/v1/gifs/search?q=" +
-      animal + "&api_key=dc6zaTOxFJmzC&limit=10&rating=g";
+      animal + "&api_key=dc6zaTOxFJmzC&limit=10&rating=g&rating=pg";
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -34,13 +35,20 @@ $(document).ready(function() {
         var results = response.data;
         console.log(results);
         for (var i = 0; i < results.length; i++) {
+          var imgDiv = $("<div>");
           var animalImage = $("<img>");
+          h1 = $("<h1>");
+          h1.addClass('rating');
+          h1.text("Rating: " + results[i].rating);
           animalImage.addClass("gif");
+          animalImage.attr("rating", results[i].rating);
           animalImage.attr("src", results[i].images.fixed_height_still.url);
           animalImage.attr("data-still", results[i].images.fixed_height_still.url);
           animalImage.attr("data-animate", results[i].images.fixed_height.url);
           animalImage.attr("data-state", "still");
-          $("#gifs-appear-here").append(animalImage);
+          imgDiv.append(h1);
+          imgDiv.append(animalImage);
+          $("#gifs-appear-here").append(imgDiv);
         }
       });
   });
